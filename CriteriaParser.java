@@ -20,7 +20,7 @@ public class CriteriaParser {
         "^(\\w+?)" + 
         "(" + Joiner.on("|").join(ArraysUtil.sortStringArray(SearchOperation.OPERATION_SET, true)) + ")" + 
         "([" + Joiner.on("").join(SearchOperation.FLAG_SET)+ "]?)" + 
-        "(\\p{Print}+?[^" + Joiner.on("").join(SearchOperation.FLAG_SET) + "])" + 
+        "((?:[^" + Joiner.on("").join(SearchOperation.FLAG_SET) + "]+)|(?:\\p{Print}+?[^" + Joiner.on("").join(SearchOperation.FLAG_SET) + "]))" +
         "([" + Joiner.on("").join(SearchOperation.FLAG_SET)+ "]?)$", 
         Pattern.UNICODE_CHARACTER_CLASS
     );
